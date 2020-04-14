@@ -124,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "shopping-cart"
+    }
+  },
+  "defaultProject": "shopping-cart",
+  "cli": {
+    "analytics": "91729f0f-fb8e-41d6-87c3-b3709e74a443"
+  }
 }

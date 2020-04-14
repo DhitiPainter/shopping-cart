@@ -13,7 +13,7 @@ import privateRoutes from './routes/private';
 import publicRoutes from './routes/public/index';
 // import RateLimit from 'express-rate-limit';
 
-const whitelist = 'http://localhost:3200';
+const whitelist = 'http://localhost:4200';
 // process.env.SITE_URL ? process.env.SITE_URL.split(',') :
 export const corsOptionsDelegate = (req: any, callback: any) => {
     let corsOptions;
@@ -50,7 +50,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // for parsing multipart/form-data
 const upload = multer({ dest: 'uploads/' });
-app.use(upload.single());
+app.use(upload.single('file'));
 app.use(express.static('public'));
 
 // ROUTES
