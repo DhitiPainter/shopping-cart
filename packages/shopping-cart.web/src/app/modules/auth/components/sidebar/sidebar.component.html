@@ -1,0 +1,63 @@
+<mat-sidenav #sidenav mode="side" [(opened)]="opened" >
+    <div class="menu-item-container">
+        <div class="menu-top-block">
+          <div class="user-detail">
+            <div class="profile-details">
+              <!-- <h2>{{ userData?.firstName }}&nbsp;{{ userData?.lastName }}</h2>
+              <p>{{ userData?.email }}</p> -->
+            </div>
+          </div>
+          <ul>
+              <li>
+                  <a class="menu-item-wrapper"><div class="menu-item">One</div></a>
+              </li>
+              <li>Two</li>
+              <li>Three</li>
+            <!-- <li *ngFor="let menuItem of menuItems"> -->
+              <!-- <a *ngIf="menuItem.subMenu && menuItem.subMenu.length" class="menu-item-wrapper"
+                (click)="menuItem.isExpanded = !menuItem.isExpanded" mat-ripple>
+                <div class="menu-item">
+                  <div class="menu-icon">
+                    <mat-icon *ngIf="menuItem.svgIcon" [svgIcon]="menuItem.svgIcon"></mat-icon>
+                    <mat-icon *ngIf="menuItem.icon">{{menuItem.icon}}</mat-icon>
+                  </div>
+                  <div class="menu-title">{{menuItem.title}}</div>
+                  <mat-icon>keyboard_arrow_down</mat-icon>
+                </div>
+              </a>
+              <a *ngIf="!menuItem.subMenu || !menuItem.subMenu.length" class="menu-item-wrapper"
+                [routerLinkActive]="'active'" [routerLink]="menuItem.routerLink"
+                (click)="menuItem.isExpanded = !menuItem.isExpanded" mat-ripple>
+                <div class="menu-item">
+                  <div class="menu-icon">
+                    <mat-icon *ngIf="menuItem.svgIcon" [svgIcon]="menuItem.svgIcon"></mat-icon>
+                    <mat-icon *ngIf="menuItem.icon">{{menuItem.icon}}</mat-icon>
+                  </div>
+                  <div class="menu-title">{{menuItem.title}}</div>
+                </div>
+              </a> -->
+              <!-- sub-menu -->
+              <!-- <ul *ngIf="menuItem.subMenu && menuItem.subMenu.length" class="sub-menu-wrapper"
+                [@openClose]="menuItem.isExpanded ? 'open' : 'closed'">
+                <li *ngFor="let subMenuItem of menuItem.subMenu">
+                  <a class="menu-item-wrapper" (click)="onBackdropClickEvent()" [routerLinkActive]="'active'"
+                    [routerLink]="subMenuItem.routerLink" mat-ripple>
+                    <div class="menu-item">
+                      <div class="menu-icon">
+                        <mat-icon *ngIf="subMenuItem.svgIcon" [svgIcon]="subMenuItem.svgIcon"></mat-icon>
+                        <mat-icon *ngIf="subMenuItem.icon">{{subMenuItem.icon}}</mat-icon>
+                      </div>
+                      <div class="menu-title">{{subMenuItem.title}}</div>
+                    </div>
+                  </a>
+                </li>
+              </ul> -->
+              <!-- sub-menu -->
+            <!-- </li> -->
+          </ul>
+        </div>
+        <!-- <div class="version-number">
+          {{ isSidebarExpanded ? "Version : " + version : "v" + version }}
+        </div> -->
+        </div>
+</mat-sidenav>

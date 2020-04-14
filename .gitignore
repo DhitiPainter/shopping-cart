@@ -1,0 +1,16 @@
+# hidden files
+.DS_Store
+
+# paths
+node_modules
+.vscode
+coverage
+dist
+
+# files
+yarn-error.log
+
+# npm
+**/package-lock.json
+**/.eslintcache
+**/.npmrc

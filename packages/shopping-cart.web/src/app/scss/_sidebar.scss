@@ -1,0 +1,304 @@
+@mixin app-sidebar($primary-color, $secondary-color, $text-color) {
+    .side-menu {
+      position: fixed;
+      top: 55px;
+      left: 0;
+      bottom: 0;
+      z-index: 998;
+      background: $white;
+      width: 64px;
+      transition: width 250ms ease-in-out;
+      align-self: stretch;
+      color: $white;
+      overflow: auto;
+      font-size: 16px;
+      box-shadow: 1px 0 6px 0 $shadow-color-1;
+      padding-bottom: 25px;
+      .version-number {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 10px;
+        text-align: left;
+        font-size: 12px;
+        color: $primary-color;
+        overflow: hidden;
+        white-space: nowrap;
+        font-weight: 100;
+        display: block;
+        // @include tab-device{
+        //   display: none;
+        // }
+      }
+  
+      .menu-item-container {
+        overflow: auto;
+        height: 100%;
+  
+        .menu-top-block {
+          background-color: $white;
+          padding-bottom: 35px;
+        }
+  
+        .user-detail {
+          padding: 30px 0;
+          border-bottom: 1px solid $lightgray-3;
+          margin: 0 12px 35px;
+          align-items: center;
+          justify-content: flex-start;
+  
+          .profile-details {
+            display: table-cell;
+            display: none;
+  
+            h2 {
+              margin: 0;
+              color: $text-color;
+              font-size: 20px;
+              line-height: 28px;
+              font-weight: 500;
+              letter-spacing: 0.26px;
+            }
+  
+            p {
+              color: $secondary-color;
+              font-size: 12px;
+              letter-spacing: 0.21px;
+              line-height: 18px;
+              margin: 0;
+              max-width: 187px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+          }
+        }
+  
+        .menu-bottom-links {
+          //display: none;
+          padding: 25px 0;
+  
+          a {
+            font-size: 16px;
+            height: 40px;
+            color: $text-color-darkgrey;
+  
+            &.menu-item-wrapper {
+              &:hover {
+                color: $primary-color;
+                background: none transparent;
+              }
+            }
+          }
+        }
+      }
+  
+      .menu-bottom-links .menu-item .menu-icon {
+        display: flex;
+      }
+  
+      .menu-item-wrapper {
+        height: 56px;
+        width: 100%;
+        overflow: hidden;
+        display: block;
+        text-decoration: none;
+        font-size: 16px;
+        color: $text-color;
+        letter-spacing: 0.26px;
+        padding-left: 10px;
+        padding-right: 10px;
+        transition: background-color 0.3s ease 0s;
+  
+        &.menu-btn-wrapper {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 72px;
+          background-color: rgba(0, 0, 0, 0.2);
+  
+          .menu-icon {
+            cursor: pointer;
+          }
+        }
+  
+        &:hover,
+        &.active {
+          background-color: rgba(1, 135, 135, 0.05);
+        }
+  
+        .menu-item {
+          height: 100%;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          transition: 0.3s;
+  
+          .menu-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 64px;
+            min-width: 44px;
+            color: $primary-color;
+  
+            .mat-icon {
+              width: 21px;
+              height: 21px;
+              font-size: 21px;
+              line-height: 21px;
+            }
+          }
+  
+          .menu-title {
+            flex: 1;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0.3s ease 0s, opacity 0.3s ease 0s;
+          }
+        }
+      }
+    }
+  
+    .side-menu.expanded {
+      width: 305px;
+  
+      .menu-item-container {
+        .user-detail {
+          display: flex;
+          margin-left: 30px;
+          margin-right: 30px;
+  
+          .profile-details {
+            display: table-cell;
+          }
+        }
+  
+        .menu-bottom-links {
+          padding: 25px 30px;
+          display: block;
+        }
+      }
+  
+      .menu-item-wrapper .menu-item {
+        .menu-title {
+          visibility: visible;
+          opacity: 1;
+          flex: 1;
+        }
+      }
+  
+      .menu-bottom-links {
+        .menu-item .menu-icon {
+          display: none;
+        }
+      }
+    }
+  
+    .app-content {
+      margin-top: $header-height;
+    }
+  
+    .app-content.expanded {
+      margin-left: 305px;
+      transition: margin-left 250ms ease-in-out;
+    }
+  
+    .app-content {
+      margin-left: 64px;
+      transition: margin-left 250ms ease-in-out;
+    }
+  
+    .side-menu-backdrop {
+      display: none;
+      z-index: 998;
+    }
+  
+    @media (max-width: 991px) {
+      .side-menu {
+        top: 0;
+        width: 305px;
+        left: -305px;
+        transition: left 250ms ease-in-out;
+        box-shadow: none;
+      }
+  
+      .side-menu.expanded {
+        left: 0px;
+        transition: left 250ms ease-in-out;
+        box-shadow: 1px 0 6px 0 $shadow-color-1;
+      }
+  
+      .side-menu-backdrop {
+        position: fixed;
+        display: none;
+        opacity: 0;
+        transition: opacity 250ms linier;
+        background: $black;
+  
+        &.visible {
+          display: block;
+          opacity: 0.2;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+        }
+      }
+  
+      .app-content {
+        margin-left: 0px;
+        transition: padding-left 250ms ease-in-out;
+      }
+  
+      .app-content.expanded {
+        margin-left: 0px;
+        transition: padding-left 250ms ease-in-out;
+      }
+    }
+  
+    @media (min-width: 1024px) and (max-width: 1440px) {
+      .side-menu {
+        .menu-item-container {
+          .user-detail {
+            padding: 20px 0;
+            margin: 0 12px 20px;
+          }
+  
+          .menu-top-block {
+            padding-bottom: 25px;
+          }
+  
+          .menu-bottom-links {
+            padding: 15px 0;
+  
+            a {
+              height: 30px;
+              line-height: 30px;
+            }
+          }
+  
+          .menu-item .menu-icon .mat-icon {
+            width: 19px;
+            height: 19px;
+            font-size: 19px;
+            line-height: 19px;
+          }
+        }
+  
+        &.expanded {
+          .menu-item-container .menu-bottom-links {
+            padding-top: 20px;
+            padding-bottom: 20px;
+          }
+        }
+  
+        .menu-item-wrapper {
+          height: 42px;
+        }
+      }
+    }
+  }
+  
