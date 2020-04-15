@@ -2,26 +2,25 @@ h3 {
     text-align: center;
 }
 
+.sign-in {
+    margin-right: 15px;
+}
+
 .userLogin {
-    text-align: center;
+    display: flex;
+    margin: 15px;
+    height: 50px;
 }
 
 .btnSubmit {
-    margin-left: -25px;
-    margin-top: 20px;
+    position: relative;
 }
 
-a.forgotLink {
-    position: absolute;
-    text-decoration: none;
-    left: 560px;
-    top: 315px;
-}
-
-a.signupLink {
-    position: absolute;
-    top: 315px;
-    left: 745px;
+a.link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
 }
 
 button.invitedUser.mat-raised-button.mat-primary {

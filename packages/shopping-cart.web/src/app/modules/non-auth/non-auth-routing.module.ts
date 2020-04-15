@@ -2,7 +2,7 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { NonAuthLayoutComponent } from './non-auth-layout.component';
-import { LandingPageComponent, LoginComponent } from './components';
+import { LandingPageComponent, LoginComponent, RegisterComponent } from './components';
 
 const routes: Routes = [
   {
@@ -10,6 +10,7 @@ const routes: Routes = [
     children: [
       { path: '', component: LandingPageComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'signup', component: RegisterComponent },
     ]
   }
 ];

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialModule } from './material.module';
+import { ErrorMessageComponent } from './components';
 
 @NgModule({
   imports: [
@@ -11,11 +12,15 @@ import { MaterialModule } from './material.module';
     ReactiveFormsModule,
     MaterialModule
   ],
+  declarations: [
+    ErrorMessageComponent
+  ],
   exports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    ErrorMessageComponent
   ]
 })
 export class SharedModule { }
