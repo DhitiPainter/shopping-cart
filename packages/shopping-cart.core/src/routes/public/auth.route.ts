@@ -4,9 +4,14 @@ export const auth = (router: any) => {
     router.post(
         '/register',
         async (req: any, res: any, next: any) => {
-            const userController = new UserController();
-            const response: any = await userController.registerUser(req.body);
-            return res.send(response); // .status(response.status)
+            let response = {};
+            try {
+                const userController = new UserController();
+                const response: any = await userController.registerUser(req.body);
+                return res.status(200).send(response);
+            } catch (error) {
+                return res.status(400).send(response);
+            }
         },
     );
 

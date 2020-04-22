@@ -23,6 +23,18 @@ export class NonAuthService {
         }));
   }
 
+  registerUser(user: UserLogin) {
+    return this.httpService.post(`auth/register`, user)
+      .pipe(
+        catchError(error => {
+          return throwError(error);
+        }),
+        map((response: any) => {
+          return response;
+        })
+      )
+  }
+
   ForgotPassword(email: string) {
     return this.httpService.get(`api/User/ForgotPassword?email=${email}`);
   }

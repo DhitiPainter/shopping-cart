@@ -3,7 +3,7 @@ import cors from 'cors';
 import express from 'express';
 import httpContext from 'express-http-context';
 import multer from 'multer';
-import uuid from 'uuid';
+import { v1 as uuidV1 } from 'uuid';
 
 import { errorHandler } from './auth/error-handler';
 import { jwt } from './auth/jwt';
@@ -37,7 +37,7 @@ app.use(cors(corsOptionsDelegate));
 app.use(httpContext.middleware);
 // Run the context for each request. Assign a unique identifier to each request
 app.use(function (req, res, next) {
-    httpContext.set('reqId', uuid.v1());
+    httpContext.set('reqId', uuidV1);
     // Works but its not the good approach when already using CORS
     // res.header('Access-Control-Allow-Origin', '*');
     // res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');

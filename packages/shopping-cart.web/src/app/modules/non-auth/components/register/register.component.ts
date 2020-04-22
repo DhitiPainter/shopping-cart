@@ -34,7 +34,12 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    console.log(this.registerForm.value);
+    if (this.registerForm.invalid) {
+      return;
+    }
+    this.nonAuthService.registerUser(this.registerForm.value).subscribe(response => {
+      this.router.navigate(['/login']);
+    });
   }
 
 }
