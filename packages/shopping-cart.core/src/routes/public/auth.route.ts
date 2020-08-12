@@ -1,13 +1,28 @@
 import UserController from '../../controllers/user.controller';
 
 export const auth = (router: any) => {
+
+    router.get(
+        '/roles',
+        async (req: any, res: any, next: any) => {
+            let response = {};
+            try {
+                const userController = new UserController();
+                response = await userController.roles();
+                return res.status(200).send(response);
+            } catch (error) {
+                return res.status(400).send(response);
+            }
+        },
+    );
+
     router.post(
         '/register',
         async (req: any, res: any, next: any) => {
             let response = {};
             try {
                 const userController = new UserController();
-                const response: any = await userController.registerUser(req.body);
+                response = await userController.registerUser(req.body);
                 return res.status(200).send(response);
             } catch (error) {
                 return res.status(400).send(response);
@@ -29,7 +44,7 @@ export const auth = (router: any) => {
                 //     throw response;
                 // }
             } catch (error) {
-                return res.status(400).send(response);
+                return res.status(400).send(error);
             }
         },
     );

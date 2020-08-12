@@ -1,5 +1,5 @@
 export const DbModel = {
-    userRole: 'userRole',
+    role: 'Role',
     user: 'User',
     userDetails: 'UserDetails',
     history: 'History',

@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
     },
     email: { type: String, unique: true, required: true, validate: { validator: validator.isEmail, msg: '{value} is not valid' } },
     hash: { type: String, required: true },
+    role: { type: mongoose.Schema.Types.ObjectId, ref: 'Role' },
     createdBy: { type: ObjectID },
     updatedBy: { type: ObjectID },
     createdDate: { type: Date, default: Date.now },

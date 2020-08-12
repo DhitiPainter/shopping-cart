@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NonAuthService, AuthService } from 'src/app/core/services';
 import { MatDialog } from '@angular/material/dialog';
+
+import { NonAuthService } from 'src/app/core/services';
 
 @Component({
   selector: 'app-register',
@@ -10,14 +11,12 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  // @ViewChild('secondDialog', { static: true }) secondDialog: TemplateRef<any>;
   registerForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private nonAuthService: NonAuthService,
-    private authService: AuthService,
     public matDialog: MatDialog
   ) { }
 
@@ -28,8 +27,8 @@ export class RegisterComponent implements OnInit {
   createForm() {
     this.registerForm = this.formBuilder.group({
       userName: ['', [Validators.required]],
-      email:['', [Validators.email]],
-      password: ['', [Validators.required]]
+      email: ['', [Validators.email]],
+      password: ['', [Validators.required]],
     });
   }
 

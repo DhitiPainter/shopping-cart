@@ -1,14 +1,13 @@
-import { ObjectID } from 'bson';
 import mongoose from 'mongoose';
 import { DbModel } from '../../common/constant';
 
-const userRoleSchema = new mongoose.Schema({
+const roleSchema = new mongoose.Schema({
     role: { type: Number },
-    user: { type: ObjectID },
+    name: { type: String }
 });
 
-userRoleSchema.set('toJSON', { virtuals: true });
+roleSchema.set('toJSON', { virtuals: true });
 
-const UserRoleModel = mongoose.model(DbModel.userRole, userRoleSchema);
+const RoleModel = mongoose.model(DbModel.role, roleSchema);
 
-export default UserRoleModel;
+export default RoleModel;

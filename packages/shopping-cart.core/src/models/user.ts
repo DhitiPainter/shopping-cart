@@ -6,6 +6,7 @@ export class User {
     public createdBy?: Date;
     public updatedDate?: Date;
     public updatedBy?: Date;
+    public role?: string | any;
     public id?: any;
     public password?: string;
     public userDetails?: object;

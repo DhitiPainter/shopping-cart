@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import { DbModel } from '../../common/constant';
 
 const addressSchema = new mongoose.Schema({
-    user: { type: ObjectID, required: true },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     address1: { type: String, required: true, maxlength: 50 },
     address2: { type: String, maxlength: 50 },
     city: { type: String, maxlength: 50 },

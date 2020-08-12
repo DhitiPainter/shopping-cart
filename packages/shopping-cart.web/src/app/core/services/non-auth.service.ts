@@ -4,13 +4,14 @@ import { catchError, map } from 'rxjs/operators';
 
 import { HttpClientService } from 'src/app/core/interceptors/http-client.service';
 import { UserLogin } from 'src/app/models';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NonAuthService {
 
-  constructor(private httpService: HttpClientService) { }
+  constructor(private httpService: HttpClientService, private authService: AuthService) { }
 
   loginUser(userModel: UserLogin) {
     return this.httpService.post(`auth/authenticate`, userModel)
@@ -19,6 +20,7 @@ export class NonAuthService {
           return throwError(error);
         }),
         map((response: any) => {
+          this.authService.setSessionRole(response.user.role);
           return response;
         }));
   }

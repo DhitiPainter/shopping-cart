@@ -7,23 +7,23 @@
             <input matInput type="email" formControlName="email" placeholder="Email" required>
             <mat-error>
                 <app-error-message [control]="registerForm.controls.email"></app-error-message>
-              </mat-error>
+            </mat-error>
         </mat-form-field><br>
         <mat-form-field>
             <input matInput type="text" formControlName="userName" placeholder="User Name" required>
             <mat-error>
                 <app-error-message [control]="registerForm.controls.userName"></app-error-message>
-              </mat-error>
+            </mat-error>
         </mat-form-field><br>
         <mat-form-field>
             <input matInput type="password" formControlName="password" placeholder="Password" required>
             <mat-error>
-              <app-error-message [control]="registerForm.controls.password"></app-error-message>
+                <app-error-message [control]="registerForm.controls.password"></app-error-message>
             </mat-error>
         </mat-form-field><br>
         <div class="btnSubmit">
-            <button mat-raised-button type="submit" class="form-btn" color="primary" [disabled]="registerForm.invalid">Register</button>
-        </div>        
+            <button mat-raised-button type="submit" class="form-btn" color="primary"
+                [disabled]="registerForm.invalid">Register</button>
+        </div>
     </form>
 </div>
-

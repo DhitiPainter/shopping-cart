@@ -1,0 +1,29 @@
+.card {
+  max-width: 300px;
+  max-height: 400px;
+  .action-menu{
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+    padding: 0px;
+    .action{
+      padding: 0 8px;
+      color: #ff4081;
+      &:hover{
+        cursor: pointer;
+      }
+    }
+  }
+  .card-content-wrapper{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    direction: ltr;
+  }
+}
+
+.header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}

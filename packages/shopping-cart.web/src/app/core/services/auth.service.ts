@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 import { UserModel } from 'src/app/models';
+import { CommonService } from './common.service';
+import { Roles } from '../common.constant';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,9 @@ export class AuthService {
   authUserInfo = 'user-data';
   userInfo = 'user-data-auth';
   rememberUser = 'remember-user';
+  userRole = 'user-role';
 
-  constructor() { }
+  constructor(private commonService: CommonService) { }
 
   getAuthToken() {
     return localStorage.getItem(this.jwtToken) || null;
@@ -71,8 +73,31 @@ export class AuthService {
       : null;
   }
 
+  setSessionRole(roleId) {
+    const sessionRole = this.commonService.userRoles.find(x => x.id.toString() === roleId);
+    switch (sessionRole.name) {
+      case Roles.admin:
+        sessionStorage.setItem(this.userRole, Roles.admin);
+        break;
+      case Roles.superAdmin:
+        sessionStorage.setItem(this.userRole, Roles.superAdmin);
+        break;
+      case Roles.user:
+        sessionStorage.setItem(this.userRole, Roles.user);
+        break;
+      default:
+        break;
+    }
+  }
+
+  getSessionRole() {
+    return sessionStorage.getItem(this.userRole);
+  }
+
   logout() {
-    localStorage.removeItem(this.jwtToken);
+    // localStorage.removeItem(this.jwtToken);
+    localStorage.clear();
+    sessionStorage.clear();
     // localStorage.removeItem(this.userInfo);
     // localStorage.removeItem(this.refreshTokens);
     // localStorage.removeItem(this.signInfoToken);

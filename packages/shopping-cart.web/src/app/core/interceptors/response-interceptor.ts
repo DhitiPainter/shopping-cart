@@ -136,7 +136,6 @@ export class ResponseInterceptor implements HttpInterceptor {
 
   logoutUser(err: any) {
     this.authService.logout();
-    this.router.navigate(['/login']);
     return throwError(err);
     // Route to the login page (implementation up to you)
     // return Observable.throw('');

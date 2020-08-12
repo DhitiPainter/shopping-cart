@@ -14,6 +14,11 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSelectModule } from '@angular/material/select';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   imports: [
@@ -30,7 +35,12 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatTooltipModule,
     MatProgressSpinnerModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatSelectModule,
+    MatListModule,
+    MatCardModule,
+    MatChipsModule,
+    MatBadgeModule,
   ],
   exports: [
     MatSnackBarModule,
@@ -46,7 +56,12 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatTooltipModule,
     MatProgressSpinnerModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatSelectModule,
+    MatListModule,
+    MatCardModule,
+    MatChipsModule,
+    MatBadgeModule,
   ]
 })
 export class MaterialModule { }

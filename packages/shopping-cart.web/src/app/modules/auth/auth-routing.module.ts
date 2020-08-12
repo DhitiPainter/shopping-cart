@@ -8,8 +8,10 @@ const routes: Routes = [{
   path: '', component: AuthLayoutComponent,
   children: [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'home', component: LandingPageComponent }
-    // { path: 'login', component: LoginComponent },
+    {
+      path: 'home',
+      loadChildren: () => import(`./modules/product/product.module`).then(m => m.ProductModule)
+    },
   ]
 }];
 

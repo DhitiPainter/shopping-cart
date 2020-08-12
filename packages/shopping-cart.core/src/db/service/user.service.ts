@@ -9,49 +9,49 @@ export async function getAll() {
 }
 
 export async function getById(id: any) {
-    try {
-        const user: any = id ? await UserModel.findById(id).select('-hash').select('-__v') : null;
-        const userDetail: any = user && user.userDetails ? await UserDetailsModel.findById(user.userDetails).select('-__v').select('-_id') : null;
-        // const classSection: any = userDetail && userDetail.class ?
-        // await ClassSectionModel.findById(userDetail.class).select('-__v').select('-_id') : null;
-        let profile: any = {};
-        profile = user ? user.toObject() : {};
-        // if (userDetail) {
-        //     profile = _.merge(profile, userDetail.toObject(), classSection.toObject());
-        // }
-        return profile;
-    } catch (error) {
-        console.log(error);
-    }
+    // try {
+    const user: any = id ? await UserModel.findById(id).select('-hash').select('-__v') : null;
+    const userDetail: any = user && user.userDetails ? await UserDetailsModel.findById(user.userDetails).select('-__v').select('-_id') : null;
+    // const classSection: any = userDetail && userDetail.class ?
+    // await ClassSectionModel.findById(userDetail.class).select('-__v').select('-_id') : null;
+    let profile: any = {};
+    profile = user ? user.toObject() : {};
+    // if (userDetail) {
+    //     profile = _.merge(profile, userDetail.toObject(), classSection.toObject());
+    // }
+    return profile;
+    // } catch (error) {
+    //     console.log(error);
+    // }
 }
 
 export async function updateUserData(id: any, userParam: any, token: string) {
-    try {
-        const userDetailsData = await UserDetailsModel.findOne((x: any) => x && x.user === id).exec();
-        let userDetail: any;
-        console.log(userDetailsData);
-        if (userDetailsData) {
-            userDetail = new UserDetailsModel(userDetailsData);
-            userDetail.user = mongoose.Types.ObjectId(id);
-            updateUserDetails(userDetail, userParam);
-        } else {
-            userDetail = new UserDetailsModel(userParam);
-            updateUserDetails(userDetail, userParam);
-        }
-        try {
-            return userDetail.save().then((res: any) => {
-                return { message: 'Updated Successfully', userDetail, status: 200, success: true };
-            }, (err: any) => {
-                if (err) {
-                    throw { error: err.errors };
-                }
-            });
-        } catch (error) {
-            return { message: 'Exception ocurred', error };
-        }
-    } catch (error) {
-        return { message: 'Exception encountered', error, status: 500, success: false };
+    // try {
+    const userDetailsData = await UserDetailsModel.findOne((x: any) => x && x.user === id).exec();
+    let userDetail: any;
+    console.log(userDetailsData);
+    if (userDetailsData) {
+        userDetail = new UserDetailsModel(userDetailsData);
+        userDetail.user = mongoose.Types.ObjectId(id);
+        updateUserDetails(userDetail, userParam);
+    } else {
+        userDetail = new UserDetailsModel(userParam);
+        updateUserDetails(userDetail, userParam);
     }
+    // try {
+    return userDetail.save().then((res: any) => {
+        return { message: 'Updated Successfully', userDetail, status: 200, success: true };
+    }, (err: any) => {
+        if (err) {
+            throw { error: err.errors };
+        }
+    });
+    // } catch (error) {
+    //     return { message: 'Exception ocurred', error };
+    // }
+    // } catch (error) {
+    //     return { message: 'Exception encountered', error, status: 500, success: false };
+    // }
 }
 
 function updateUserDetails(oldUserDetails: any, newUserDetails: any) {

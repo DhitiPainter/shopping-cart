@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AuthRoutingModule } from './auth-routing.module';
-import { AuthLayoutComponent } from './auth-layout.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { AuthLayoutComponent } from './auth-layout.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -13,12 +13,12 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     AuthLayoutComponent,
     LandingPageComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class AuthModule { }

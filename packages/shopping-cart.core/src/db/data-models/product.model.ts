@@ -1,21 +1,23 @@
-import { ObjectID } from 'bson';
 import { Buffer } from 'buffer';
 import mongoose from 'mongoose';
 import { DbModel } from '../../common/constant';
 
 const productSchema = new mongoose.Schema({
-    user: { type: ObjectID, required: true },
+    name: { type: String, required: true },
     price: { type: Number, required: true },
     description: { type: String },
-    // file: { type: String, data: Buffer },    
     tags: [{ type: String }],
     brand: { type: String },
+    // category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' },
     createdDate: { type: Date, default: Date.now },
     updatedDate: { type: Date },
-    createdBy: { type: ObjectID },
-    updatedBy: { type: ObjectID },
+    createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    updatedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     imageName: { type: String },
-    imageData: { type: String }
+    imageData: { type: String },
+    defaultImage: { type: String },
+    availabileQty: { type: Number },
+    // file: { type: String, data: Buffer },
 });
 
 productSchema.set('toJSON', { virtuals: true });

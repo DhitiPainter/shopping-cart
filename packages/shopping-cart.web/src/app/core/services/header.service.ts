@@ -8,9 +8,14 @@ import { UserModel } from 'src/app/models';
   providedIn: 'root'
 })
 export class HeaderService {
-    showSideBar = false;
+  showSideBar = false;
+  cartCount = 0;
 
-    toggleSideBar() {
-        this.showSideBar = !this.showSideBar;
-    }
+  toggleSideBar() {
+    this.showSideBar = !this.showSideBar;
+  }
+
+  getCartItemCounts() {
+    return this.cartCount;
+  }
 }
